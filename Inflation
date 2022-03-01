@@ -1,0 +1,17 @@
+def inflation(row, series):
+    # This function computes the percent change in the level of prices (inflation) for the 
+    # 12 months starting '12+lag' months ago and ending 'lag' months ago.
+    # lag is an integer input
+    
+    #new = float(r['Results']['series'][0]['data'][lag]['value'])
+    new = float(myData.iat[row, series])
+    #old = float(r['Results']['series'][0]['data'][12+lag]['value'])
+    old = float(myData.iat[row+12, series])
+    
+    change = (new/old - 1)*100
+    print('Inflation in the period starting ', lag, 'months ago and ending', 12+lag, 'months ago was ',round(change,1),'%')
+    return 
+    
+for column in [2, 3, 4]:  
+for row in [0,1,2,3]:
+    inflation(row, column)
